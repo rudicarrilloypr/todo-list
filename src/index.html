@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>To Do List</h1>
-    <ul id="todo-list"></ul>
+    <div class="container">
+        <header>
+            <h1>Today's to Do</h1>
+            <button id="refresh-btn"><i class="fas fa-sync-alt"></i></button>
+        </header>
+        <div class="input-container">
+            <input type="text" id="task-input" placeholder="Add to your list..." />
+            <button id="enter-btn"><i class="fas fa-arrow-right"></i></button> <!-- NUEVO: botón Enter -->
+        </div>
+        <ul id="todo-list"></ul>
+        <button id="clear-completed-btn">Clear all completed</button>
+    </div>
 </body>
 </html>
