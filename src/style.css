@@ -1,207 +1,209 @@
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("/assets/img/space.jpg");
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("/assets/img/space.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    max-width: 90%;
-    width: 600px;
-    padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  max-width: 90%;
+  width: 600px;
+  padding: 1rem;
 }
 
 .container header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .container h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 1.2rem;
-    font-weight: normal;
-}
-
-.container .input-container {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    padding: 1rem;
-    margin-bottom: 1rem;
-    /*border-radius: 10px;*/
-}
-
-.container #task-input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    background-color: transparent; /* Hace que el fondo del input sea transparente */
-}
-
-.container #todo-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.container #todo-list li {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-}
-
-.container #todo-list li input[type="checkbox"] {
-    margin-right: 0.5rem;
-}
-
-.container #todo-list li button {
-    margin-left: auto;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.container #refresh-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-.container #clear-completed-btn {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-#todo-list button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #626262; /* Esto hará que el icono de basura sea rojo */
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 .input-container {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: white;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  align-items: center;
+}
+
+.container .input-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  /* border-radius: 10px; */
 }
 
 #task-input {
-    border: none;
-    flex-grow: 1;
-    margin-right: 10px;
+  border: none;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
-#enter-btn {
-    background: none;
-    opacity: 0.5;
-    border: none;
-    color: gray;
-    transition: opacity 0.3s ease-in-out;
+.container #task-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: transparent; /* Hace que el fondo del input sea transparente */
 }
 
-#enter-btn:hover {
-    opacity: 1;
-}
-
-input[type='checkbox'] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid #666;
-    border-radius: 3px;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.5); /* Esto hace que el fondo sea semi-transparente */
-    cursor: pointer;
-    position: relative;
-}
-
-input[type='checkbox']:checked:before {
-    content: '\2713';
-    font-size: 18px;
-    color: #666;
-    position: absolute;
-    top: -2px;
-    left: 4px;
-}
-
-#clear-completed-btn {
-    transition: background 0.3s ease-in-out;
-}
-
-#clear-completed-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.delete-icon {
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
-    position: relative;
-    margin-right: -450px;
-}
-
-.delete-icon:hover {
-    opacity: 1;
-}
-
-.drag-icon {
-    font-size: 1.2rem;
-    color: #777;
-    cursor: move;  /* Cambia el cursor a la mano con el icono de mover */
-    transition: color 0.2s ease-in-out;
-}
-
-.drag-btn {
-    background: none;
-    border: none;
-    cursor: move;
-}
-
-.drag-btn:hover .drag-icon {
-    color: #333;
+.container #todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 li:active {
-    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.container #todo-list li {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.container #todo-list li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+#todo-list button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #626262; /* Esto hará que el icono de basura sea rojo */
+}
+
+.container #todo-list li button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container #refresh-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+#clear-completed-btn {
+  transition: background 0.3s ease-in-out;
+}
+
+.container #clear-completed-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+#enter-btn {
+  background: none;
+  opacity: 0.5;
+  border: none;
+  color: gray;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#enter-btn:hover {
+  opacity: 1;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #666;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5); /* Esto hace que el fondo sea semi-transparente */
+  cursor: pointer;
+  position: relative;
+}
+
+input[type='checkbox']:checked::before {
+  content: '\2713';
+  font-size: 18px;
+  color: #666;
+  position: absolute;
+  top: -2px;
+  left: 4px;
+}
+
+#clear-completed-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.delete-icon {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  margin-right: -450px;
+}
+
+.delete-icon:hover {
+  opacity: 1;
+}
+
+.drag-icon {
+  font-size: 1.2rem;
+  color: #777;
+  cursor: move;  /* Cambia el cursor a la mano con el icono de mover */
+  transition: color 0.2s ease-in-out;
+}
+
+.drag-btn {
+  background: none;
+  border: none;
+  cursor: move;
+}
+
+.drag-btn:hover .drag-icon {
+  color: #333;
 }
 
 @media (max-width: 767px) {
-    /* Estilos para dispositivos móviles */
-    .delete-icon {
-        margin-right: -200px; /* Ajuste para dispositivos móviles */
-    }
+  /* Estilos para dispositivos móviles */
+  .delete-icon {
+    margin-right: -200px; /* Ajuste para dispositivos móviles */
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    /* Estilos para tabletas */
-    .delete-icon {
-        margin-right: -450px; /* Ajuste para tabletas */
-    }
+  /* Estilos para tabletas */
+  .delete-icon {
+    margin-right: -450px; /* Ajuste para tabletas */
+  }
 }
