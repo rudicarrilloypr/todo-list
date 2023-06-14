@@ -15,6 +15,13 @@ export function saveTasksToLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+export function loadTasksFromLocalStorage() {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+  }
+}
+
 function updateTaskIndexes(tasks) {
   for (let i = 0; i < tasks.length; i += 1) {
     tasks[i].index = i;

@@ -1,7 +1,7 @@
 import './style.css';
 import {
-  // eslint-disable-next-line import/named
-  handleNewTask, handleClearCompleted, populateTodoList, getTasks, setTasks,
+  // eslint-disable-next-line import/named, max-len
+  handleNewTask, handleClearCompleted, populateTodoList, getTasks, setTasks, loadTasksFromLocalStorage,
 } from './taskFunctions.js';
 
 const todoList = document.getElementById('todo-list');
@@ -25,6 +25,10 @@ function handleRefresh() {
 
 clearCompletedBtn.addEventListener('click', () => handleClearCompleted(populateTodoList, getTasks, setTasks));
 refreshBtn.addEventListener('click', handleRefresh);
-window.onload = () => populateTodoList(getTasks(), todoList);
+
+window.onload = () => {
+  loadTasksFromLocalStorage();
+  populateTodoList(getTasks(), todoList);
+};
 
 enterBtn.addEventListener('click', () => handleNewTask(taskInput, populateTodoList, getTasks, setTasks));
