@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-   <img src="./assets/img/RClogo.png" alt="logo" width="140"  height="auto" />
+   <img src="./assets/img/rc-sd-logo.PNG" alt="Rudi Carrillo logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>📋 To-Do List 📋</b></h3>
@@ -136,8 +136,9 @@ You can deploy this project using:
 👤 **Author**
 
 - GitHub: [@rudicarrilloypr](https://github.com/rudicarrilloypr)
-- Twitter: [@onlyargo](https://twitter.com/onlyargo)
+- Twitter: [@__rudicarrillo](https://twitter.com/__rudicarrillo)
 - LinkedIn: [Rudi Carrillo](https://www.linkedin.com/in/rudi-carrillo/)
+- Instagram: [@__rudicarrillo](https://www.instagram.com/_rudicarrillo/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
