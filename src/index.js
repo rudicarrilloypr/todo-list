@@ -1,8 +1,10 @@
 import './style.css';
 import {
-  // eslint-disable-next-line import/named, max-len
+  // eslint-disable-next-line max-len, no-unused-vars
   handleNewTask, handleClearCompleted, populateTodoList, getTasks, setTasks, loadTasksFromLocalStorage,
 } from './taskFunctions.js';
+// eslint-disable-next-line no-unused-vars
+import { toggleTaskCompleted, clearAllCompleted } from './statusUpdates.js';
 
 const todoList = document.getElementById('todo-list');
 const taskInput = document.getElementById('task-input');
@@ -23,7 +25,7 @@ function handleRefresh() {
   console.log('La lista de tareas ha sido actualizada');
 }
 
-clearCompletedBtn.addEventListener('click', () => handleClearCompleted(populateTodoList, getTasks, setTasks));
+clearCompletedBtn.addEventListener('click', () => clearAllCompleted(populateTodoList, getTasks, setTasks, todoList));
 refreshBtn.addEventListener('click', handleRefresh);
 
 window.onload = () => {
