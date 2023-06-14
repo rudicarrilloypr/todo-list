@@ -148,14 +148,17 @@ input[type='checkbox']:checked::before {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+input[type='checkbox']:checked ~ span {
+  text-decoration: line-through;
+  color: gray;
+}
+
 /* Estilos para el contenedor de los botones */
 #todo-list li .button-container {
   margin-left: auto;
   display: flex;
   gap: 1px;
 }
-
-/* Toda tu CSS previa */
 
 /* Estilos para el botón de borrar */
 #todo-list li .button-container button {
@@ -192,4 +195,30 @@ input[type='checkbox']:checked::before {
 #todo-list li .text-container {
   display: flex;
   gap: 10px;
+}
+
+/* Media queries para tabletas y dispositivos móviles */
+@media (max-width: 768px) {
+  /* stylelint-disable-next-line indentation */
+.container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  #todo-list li .text-container {
+    width: 80%; /* Ajusta la anchura del contenedor de texto al 80% en dispositivos móviles y tabletas */
+  }
+
+  #todo-list li .button-container {
+    width: 20%; /* Ajusta la anchura del contenedor de botones al 20% en dispositivos móviles y tabletas */
+    justify-content: space-evenly; /* Esto distribuye los botones de manera uniforme en el espacio disponible. */
+  }
+
+  #todo-list li .button-container button {
+    font-size: 1rem; /* Ajusta el tamaño de los íconos para los dispositivos móviles y tabletas. */
+  }
+
+  #task-input {
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente del campo de entrada para los dispositivos móviles y tabletas. */
+  }
 }
