@@ -7,6 +7,19 @@ export function getTasks() {
 
 export function setTasks(newTasks) {
   tasks = newTasks;
+  // eslint-disable-next-line no-use-before-define
+  saveTasksToLocalStorage(tasks);
+}
+
+export function saveTasksToLocalStorage(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function updateTaskIndexes(tasks) {
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].index = i;
+  }
+  return tasks;
 }
 
 export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
@@ -14,12 +27,10 @@ export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
 
   if (taskInput.value.trim() === '') return;
 
-  const highestIndex = tasks.reduce((maxIndex, task) => Math.max(maxIndex, task.index), -1);
-
   const newTask = {
     description: taskInput.value,
     completed: false,
-    index: highestIndex + 1,
+    index: tasks.length,
   };
 
   tasks.push(newTask);
@@ -33,6 +44,7 @@ export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
 export function handleClearCompleted(populateTodoList, getTasks, setTasks) {
   let tasks = getTasks();
   tasks = tasks.filter((task) => !task.completed);
+  tasks = updateTaskIndexes(tasks);
   setTasks(tasks);
   populateTodoList(tasks, document.getElementById('todo-list'));
 }
@@ -63,6 +75,7 @@ export function populateTodoList(tasks, todoList) {
     deleteBtn.addEventListener('click', () => {
       let tasks = getTasks();
       tasks = tasks.filter((t) => t.description !== task.description);
+      tasks = updateTaskIndexes(tasks);
       setTasks(tasks);
       populateTodoList(tasks, todoList);
     });
