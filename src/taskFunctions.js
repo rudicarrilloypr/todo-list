@@ -1,3 +1,5 @@
+import { toggleTaskCompleted } from './statusUpdates.js';
+
 let draggedItem = null;
 let tasks = [];
 
@@ -70,8 +72,8 @@ export function populateTodoList(tasks, todoList) {
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
     checkbox.addEventListener('change', () => {
-      task.completed = !task.completed;
-      populateTodoList(tasks, todoList);
+      toggleTaskCompleted(task, getTasks, setTasks);
+      populateTodoList(getTasks(), todoList);
     });
 
     const text = document.createElement('span');
