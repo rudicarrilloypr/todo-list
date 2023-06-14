@@ -73,7 +73,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Click here](https://rudicarrilloypr.github.io/todo-list/dist/index.html) to see the project's deployment on GitHub pages.
+[Click here](https://rudicarrilloypr.github.io/todo-list/dist/) to see the project's deployment on GitHub pages.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
