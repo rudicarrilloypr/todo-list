@@ -63,6 +63,9 @@ export function populateTodoList(tasks, todoList) {
     const listItem = document.createElement('li');
     listItem.draggable = true;
 
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('text-container');
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
@@ -70,12 +73,21 @@ export function populateTodoList(tasks, todoList) {
       task.completed = !task.completed;
       populateTodoList(tasks, todoList);
     });
-    listItem.append(checkbox);
 
     const text = document.createElement('span');
     text.textContent = task.description;
     text.contentEditable = true;
-    listItem.append(text);
+
+    // Añade el manejador del evento 'blur'
+    text.addEventListener('blur', () => {
+      task.description = text.textContent;
+      saveTasksToLocalStorage(tasks);
+    });
+
+    textContainer.append(checkbox, text);
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = '<i class="fas fa-trash-alt delete-icon"></i>';
@@ -86,13 +98,14 @@ export function populateTodoList(tasks, todoList) {
       setTasks(tasks);
       populateTodoList(tasks, todoList);
     });
-    listItem.append(deleteBtn);
+    buttonContainer.appendChild(deleteBtn);
 
     const dragBtn = document.createElement('button');
     dragBtn.innerHTML = '<i class="fas fa-ellipsis-v drag-icon"></i>';
     dragBtn.className = 'drag-btn';
-    listItem.append(dragBtn);
+    buttonContainer.appendChild(dragBtn);
 
+    listItem.append(textContainer, buttonContainer);
     todoList.append(listItem);
 
     listItem.addEventListener('dragstart', () => {

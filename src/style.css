@@ -47,12 +47,8 @@ body {
 .container .input-container {
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
-
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   padding: 1rem;
   margin-bottom: 1rem;
-
-  /* border-radius: 10px; */
 }
 
 #task-input {
@@ -66,7 +62,7 @@ body {
   border: none;
   outline: none;
   font-size: 1rem;
-  background-color: transparent; /* Hace que el fondo del input sea transparente */
+  background-color: transparent;
 }
 
 .container #todo-list {
@@ -92,20 +88,6 @@ li:active {
 
 .container #todo-list li input[type="checkbox"] {
   margin-right: 0.5rem;
-}
-
-#todo-list button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  color: #626262; /* Esto hará que el icono de basura sea rojo */
-}
-
-.container #todo-list li button {
-  margin-left: auto;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 .container #refresh-btn {
@@ -148,7 +130,7 @@ input[type='checkbox'] {
   border-radius: 3px;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.5); /* Esto hace que el fondo sea semi-transparente */
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   position: relative;
 }
@@ -166,44 +148,48 @@ input[type='checkbox']:checked::before {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.delete-icon {
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
-  position: relative;
-  margin-right: -450px;
+/* Estilos para el contenedor de los botones */
+#todo-list li .button-container {
+  margin-left: auto;
+  display: flex;
+  gap: 1px;
 }
 
-.delete-icon:hover {
+/* Toda tu CSS previa */
+
+/* Estilos para el botón de borrar */
+#todo-list li .button-container button {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+  border: none; /* Elimina cualquier borde */
+  background: none; /* Elimina cualquier fondo */
+  margin-left: 10px;
+}
+
+#todo-list li .button-container button:hover {
   opacity: 1;
 }
 
-.drag-icon {
+/* Estilos para el botón de arrastrar */
+#todo-list li .button-container .drag-icon {
   font-size: 1.2rem;
   color: #777;
-  cursor: move;  /* Cambia el cursor a la mano con el icono de mover */
+  cursor: move;
   transition: color 0.2s ease-in-out;
 }
 
-.drag-btn {
+#todo-list li .button-container .drag-btn {
   background: none;
   border: none;
   cursor: move;
 }
 
-.drag-btn:hover .drag-icon {
+#todo-list li .button-container .drag-btn:hover .drag-icon {
   color: #333;
 }
 
-@media (max-width: 767px) {
-  /* Estilos para dispositivos móviles */
-  .delete-icon {
-    margin-right: -200px; /* Ajuste para dispositivos móviles */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Estilos para tabletas */
-  .delete-icon {
-    margin-right: -450px; /* Ajuste para tabletas */
-  }
+/* Estilos para el contenedor de texto y checkbox */
+#todo-list li .text-container {
+  display: flex;
+  gap: 10px;
 }
