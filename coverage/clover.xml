@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687408881300" clover="3.2.0">
-  <project timestamp="1687408881300" name="All files">
+<coverage generated="1687409027542" clover="3.2.0">
+  <project timestamp="1687409027542" name="All files">
     <metrics statements="82" coveredstatements="47" conditionals="6" coveredconditionals="1" methods="24" coveredmethods="9" elements="112" coveredelements="57" complexity="0" loc="82" ncloc="82" packages="1" files="2" classes="2"/>
     <file name="statusUpdates.js" path="/Users/rudicarrillo/Documentos/GitHub/todo-list/src/statusUpdates.js">
       <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
