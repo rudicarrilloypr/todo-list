@@ -17,7 +17,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [Feature Features] (#feature-features)
+  - [Future Features](#future-features)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -78,10 +78,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!--- Feature Features ---->
+<!--- Future Features ---->
 
 ### Feature Features <a name="feature-features"></a>
-- Update the design
+- Update design
+- Drag and drop list elements
 
 <!-- GETTING STARTED -->
 
