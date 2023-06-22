@@ -17,7 +17,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [Feature Features] (#feature-features)
+  - [Future Features](#future-features)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -33,7 +33,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome To-Do List <a name="about-project"></a>
+# 📖  To-Do List <a name="about-project"></a>
 
 **Awesome To-Do List** is a basic To-Do List project built using webpack, JavaScript, HTML, and CSS. It allows users to create, manage, and track their daily tasks or to-do items. This README file provides an overview of the project and explains how to set it up and run it on your local machine.
 
@@ -78,10 +78,13 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!--- Feature Features ---->
+<!--- Future Features ---->
 
-### Feature Features <a name="feature-features"></a>
-- Update the design
+### <a href="#future-features"></a>🔮 Future Features
+- Update design
+- Drag and drop list elements
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 

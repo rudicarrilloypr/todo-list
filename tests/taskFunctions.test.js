@@ -4,7 +4,7 @@ import {
   saveTasksToLocalStorage,
   loadTasksFromLocalStorage,
   handleClearCompleted,
-  populateTodoList,
+  handleNewTask,
 } from '../src/taskFunctions.js';
 
 beforeEach(() => {
@@ -52,58 +52,52 @@ describe('loadTasksFromLocalStorage function', () => {
 
 describe('handleClearCompleted function', () => {
   it('should remove completed tasks', () => {
-    document.body.innerHTML = `
-      <div class="container">
-          <header>
-              <h1>Today's to Do</h1>
-              <button id="refresh-btn"><i class="fas fa-sync-alt"></i></button>
-          </header>
-          <div class="input-container">
-              <input type="text" id="task-input" placeholder="Add to your list..." />
-              <button id="enter-btn"><i class="fas fa-arrow-right"></i></button>
-          </div>
-          <ul id="todo-list">
-              <li>
-                  <div class="text-container">
-                      <input type="checkbox" checked>
-                      <span>Completed Task</span>
-                  </div>
-              </li>
-              <li>
-                  <div class="text-container">
-                      <input type="checkbox">
-                      <span>Incomplete Task</span>
-                  </div>
-              </li>
-          </ul>
-          <button id="clear-completed-btn">Clear all completed</button>
-      </div>
-      `;
+    const tasks = [
+      { description: 'Task 1', completed: true },
+      { description: 'Task 2', completed: false },
+    ];
+    setTasks(tasks);
 
-    const todoList = document.getElementById('todo-list');
+    const populateTodoListMock = jest.fn();
+    handleClearCompleted(populateTodoListMock, getTasks, setTasks);
 
-    // Mock getTasks function to return tasks from DOM
-    const getTasks = () => {
-      const tasks = [];
-      const listItems = Array.from(todoList.children);
+    expect(getTasks()).toEqual([{ description: 'Task 2', completed: false, index: 0 }]);
+    expect(populateTodoListMock).toHaveBeenCalledWith([{ description: 'Task 2', completed: false, index: 0 }]);
+  });
+});
 
-      listItems.forEach((item, index) => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const span = item.querySelector('span');
+describe('handleNewTask function', () => {
+  it('should add a new task and allow updating its description', () => {
+    const taskInput = document.createElement('input');
+    taskInput.value = 'New Task';
 
-        tasks.push({
-          description: span.textContent,
-          completed: checkbox.checked,
-          index,
-        });
-      });
+    const populateTodoListMock = jest.fn();
+    const getTasksMock = jest.fn().mockReturnValue([]);
+    const setTasksMock = jest.fn();
 
-      return tasks;
-    };
+    handleNewTask(taskInput, populateTodoListMock, getTasksMock, setTasksMock);
 
-    handleClearCompleted(populateTodoList, getTasks, setTasks);
+    expect(setTasksMock).toHaveBeenCalledWith([
+      { description: 'New Task', completed: false, index: 0 },
+    ]);
+    expect(taskInput.value).toBe('');
+    expect(populateTodoListMock).toHaveBeenCalledWith([
+      { description: 'New Task', completed: false, index: 0 },
+    ]);
+  });
 
-    expect(todoList.children.length).toBe(1);
-    expect(todoList.children[0].textContent).not.toContain('Completed Task');
+  it('should not add a new task if the input is empty', () => {
+    const taskInput = document.createElement('input');
+    taskInput.value = '';
+
+    const populateTodoListMock = jest.fn();
+    const getTasksMock = jest.fn().mockReturnValue([]);
+    const setTasksMock = jest.fn();
+
+    handleNewTask(taskInput, populateTodoListMock, getTasksMock, setTasksMock);
+
+    expect(setTasksMock).not.toHaveBeenCalled();
+    expect(taskInput.value).toBe('');
+    expect(populateTodoListMock).not.toHaveBeenCalled();
   });
 });
