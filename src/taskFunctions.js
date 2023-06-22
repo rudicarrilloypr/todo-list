@@ -1,17 +1,7 @@
 import { toggleTaskCompleted } from './statusUpdates.js';
 
-let draggedItem = null;
 let tasks = [];
-
-export function getTasks() {
-  return tasks;
-}
-
-export function setTasks(newTasks) {
-  tasks = newTasks;
-  // eslint-disable-next-line no-use-before-define
-  saveTasksToLocalStorage(tasks);
-}
+let draggedItem = null;
 
 export function saveTasksToLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -24,11 +14,13 @@ export function loadTasksFromLocalStorage() {
   }
 }
 
-function updateTaskIndexes(tasks) {
-  for (let i = 0; i < tasks.length; i += 1) {
-    tasks[i].index = i;
-  }
+export function getTasks() {
   return tasks;
+}
+
+export function setTasks(newTasks) {
+  tasks = newTasks;
+  saveTasksToLocalStorage(tasks);
 }
 
 export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
@@ -51,7 +43,14 @@ export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
   setTasks(currentTasks);
 
   taskInput.value = '';
-  populateTodoList(currentTasks, document.getElementById('todo-list'));
+  populateTodoList(currentTasks);
+}
+
+export function updateTaskIndexes(tasks) {
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].index = i;
+  }
+  return tasks;
 }
 
 export function handleClearCompleted(populateTodoList, getTasks, setTasks) {
@@ -59,10 +58,14 @@ export function handleClearCompleted(populateTodoList, getTasks, setTasks) {
   tasks = tasks.filter((task) => !task.completed);
   tasks = updateTaskIndexes(tasks);
   setTasks(tasks);
-  populateTodoList(tasks, document.getElementById('todo-list'));
+  populateTodoList(tasks);
 }
 
-export function populateTodoList(tasks, todoList) {
+export function populateTodoList(tasks) {
+  const todoList = document.getElementById('todo-list');
+
+  if (!todoList) return;
+
   todoList.innerHTML = '';
 
   tasks.sort((a, b) => a.index - b.index).forEach((task) => {
@@ -77,7 +80,7 @@ export function populateTodoList(tasks, todoList) {
     checkbox.checked = task.completed;
     checkbox.addEventListener('change', () => {
       toggleTaskCompleted(task, getTasks, setTasks);
-      populateTodoList(getTasks(), todoList);
+      populateTodoList(getTasks());
     });
 
     const text = document.createElement('span');
@@ -102,7 +105,7 @@ export function populateTodoList(tasks, todoList) {
       tasks = tasks.filter((t) => t.description !== task.description);
       tasks = updateTaskIndexes(tasks);
       setTasks(tasks);
-      populateTodoList(tasks, todoList);
+      populateTodoList(tasks);
     });
     buttonContainer.appendChild(deleteBtn);
 
@@ -134,7 +137,7 @@ export function populateTodoList(tasks, todoList) {
 
       tasks = tasks.sort((a, b) => a.index - b.index);
       setTasks(tasks);
-      populateTodoList(tasks, todoList);
+      populateTodoList(tasks);
     });
   });
 }
