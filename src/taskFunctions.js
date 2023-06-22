@@ -32,22 +32,26 @@ function updateTaskIndexes(tasks) {
 }
 
 export function handleNewTask(taskInput, populateTodoList, getTasks, setTasks) {
-  const tasks = getTasks();
+  let currentTasks = getTasks();
 
   if (taskInput.value.trim() === '') return;
+
+  if (!currentTasks) {
+    currentTasks = [];
+  }
 
   const newTask = {
     description: taskInput.value,
     completed: false,
-    index: tasks.length,
+    index: currentTasks.length,
   };
 
-  tasks.push(newTask);
+  currentTasks.push(newTask);
 
-  setTasks(tasks);
+  setTasks(currentTasks);
 
   taskInput.value = '';
-  populateTodoList(tasks, document.getElementById('todo-list'));
+  populateTodoList(currentTasks, document.getElementById('todo-list'));
 }
 
 export function handleClearCompleted(populateTodoList, getTasks, setTasks) {
