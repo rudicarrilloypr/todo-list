@@ -3,7 +3,6 @@ import {
   setTasks,
   saveTasksToLocalStorage,
   loadTasksFromLocalStorage,
-  /* handleNewTask, */
   handleClearCompleted,
   populateTodoList,
 } from '../src/taskFunctions.js';
@@ -50,23 +49,6 @@ describe('loadTasksFromLocalStorage function', () => {
     expect(getTasks()).toEqual(tasks);
   });
 });
-
-/* ---test('should add a new task', () => {
-  // Define taskInput y las demás funciones necesarias como mocks
-  const taskInput = { value: 'New task' };
-  const populateTodoList = jest.fn();
-  const getTasks = jest.fn();
-  const setTasks = jest.fn();
-
-  // Llama a handleNewTask sólo una vez
-  handleNewTask(taskInput, populateTodoList, getTasks, setTasks);
-
-  const todoList = document.getElementById('todo-list');
-  const listItemElements = todoList.querySelectorAll('li');
-  // Haz tus aserciones
-  expect(listItemElements.length).toBe(1);
-  expect(listItemElements[0].textContent).toContain('New task');
-}); --*/
 
 describe('handleClearCompleted function', () => {
   it('should remove completed tasks', () => {
