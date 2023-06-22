@@ -17,6 +17,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [Feature Features] (#feature-features)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -76,6 +77,11 @@
 [Click here](https://rudicarrilloypr.github.io/todo-list/dist/) to see the project's deployment on GitHub pages.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!--- Feature Features ---->
+
+### Feature Features <a name="feature-features"></a>
+- Update the design
 
 <!-- GETTING STARTED -->
 
@@ -190,7 +196,5 @@ If you like this project, please consider supporting us! Your support helps us t
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.txt) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
