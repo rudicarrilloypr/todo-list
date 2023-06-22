@@ -5,24 +5,36 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "jsdom",
+    "preset": "babel-preset"
+  },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.5.0",
     "css-loader": "^6.8.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.27.5",
     "hint": "^7.1.9",
     "html-webpack-plugin": "^5.5.3",
+    "jes": "^0.6.1",
+    "jest": "^27.5.1",
+    "jsdom": "^16.7.0",
     "style-loader": "^3.3.3",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
+    "text-encoding": "^0.7.0",
     "webpack": "^5.86.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"

@@ -12,10 +12,14 @@ const clearCompletedBtn = document.getElementById('clear-completed-btn');
 const refreshBtn = document.getElementById('refresh-btn');
 const enterBtn = document.getElementById('enter-btn');
 
+let allowTaskCreation = true;
+
 // Agregar event listeners
 taskInput.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
+    allowTaskCreation = false;
     handleNewTask(taskInput, populateTodoList, getTasks, setTasks);
+    setTimeout(() => { allowTaskCreation = true; }, 100);
   }
 });
 
@@ -33,4 +37,8 @@ window.onload = () => {
   populateTodoList(getTasks(), todoList);
 };
 
-enterBtn.addEventListener('click', () => handleNewTask(taskInput, populateTodoList, getTasks, setTasks));
+enterBtn.addEventListener('click', () => {
+  if (allowTaskCreation) {
+    handleNewTask(taskInput, populateTodoList, getTasks, setTasks);
+  }
+});
