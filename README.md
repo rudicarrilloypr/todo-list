@@ -39,7 +39,7 @@
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+## Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
@@ -64,7 +64,7 @@
 
 <!-- Features -->
 
-### Key Features <a name="key-features"></a>
+## Key Features <a name="key-features"></a>
 - [X] **Create a new task**
 - [X] **Mark a task as completed**
 
@@ -100,7 +100,7 @@ Before you proceed, ensure that you have the following installed on your machine
 Clone this repository to your desired folder:
 
 ```sh
-  git clone git@github.com:sergio-usma/To-Do-List.git
+  git git@github.com:rudicarrilloypr/todo-list.git
 ```
 
 ### Install
