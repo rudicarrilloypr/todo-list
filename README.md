@@ -100,7 +100,7 @@ Before you proceed, ensure that you have the following installed on your machine
 Clone this repository to your desired folder:
 
 ```sh
-  git clone git@github.com:sergio-usma/To-Do-List.git
+  git git@github.com:rudicarrilloypr/todo-list.git
 ```
 
 ### Install
